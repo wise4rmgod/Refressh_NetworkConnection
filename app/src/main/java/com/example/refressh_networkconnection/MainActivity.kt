@@ -1,16 +1,13 @@
 package com.example.refressh_networkconnection
 
-import android.content.Context
 import android.graphics.Color
-import android.net.ConnectivityManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.example.refressh_networkconnection.ui.NetworkUtil
+import com.example.refressh_networkconnection.utils.NetworkUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import leakcanary.AppWatcher
 import leakcanary.ObjectWatcher
-import java.util.*
 
 class MainActivity : AppCompatActivity() {
 

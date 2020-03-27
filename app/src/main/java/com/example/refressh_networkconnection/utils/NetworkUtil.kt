@@ -1,4 +1,4 @@
-package com.example.refressh_networkconnection.ui
+package com.example.refressh_networkconnection.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
