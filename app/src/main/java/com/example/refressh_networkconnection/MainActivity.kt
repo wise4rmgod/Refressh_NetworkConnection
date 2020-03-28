@@ -18,23 +18,35 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val objectWatcher: ObjectWatcher = AppWatcher.objectWatcher
         
         NetworkUtil.getNetworkLiveData(applicationContext)
             .observe(this, androidx.lifecycle.Observer { t ->
 
-
-                if (t.toString() == "true") {
-
-                    network_background.setBackgroundColor(Color.GREEN);
-                    Toast.makeText(applicationContext, "Connected", Toast.LENGTH_SHORT).show()
-                } else {
-                    network_background.setBackgroundColor(Color.RED);
-                    Toast.makeText(applicationContext, "Not Connected", Toast.LENGTH_SHORT).show()
+                when(t) {
+                    true -> {
+                        network_background.setBackgroundColor(Color.GREEN);
+                        Toast.makeText(applicationContext, "Connected", Toast.LENGTH_SHORT).show()}
+                    false -> {
+                        network_background.setBackgroundColor(Color.RED);
+                        Toast.makeText(applicationContext, "Not Connected", Toast.LENGTH_SHORT).show()
+                    }
+                    null -> {
+                        Toast.makeText(applicationContext, "Error", Toast.LENGTH_SHORT).show()
+                    }
                 }
+
+
             })
 
     }
+
+    /**
+       if (t.toString() == "true") {
+
+
+    } else {
+
+    }
+     **/
 
 }
